@@ -1,5 +1,5 @@
 import React from "react";
-import {axiosWithAuth} from '../utils/axiosWithAuth';
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 class Login extends React.Component {
   state = {
@@ -29,34 +29,29 @@ class Login extends React.Component {
       .catch(err => console.log(err));
   };
 
-
-
   render() {
     return (
       <>
         <h1>Welcome to the Bubble App!</h1>
 
-        <form>
-          <input 
-          type="text" 
-          name="username" 
-          placeholder="type user" 
+        <form onSubmit={this.login}>
+          <input
+            type="text"
+            name="username"
+            placeholder="type user"
+            value={this.state.credentials.username}
+            onChange={this.handleChange}
           />
 
-
-          <input 
-          type="password" 
-          name="password" 
-          placeholder="type password" 
+          <input
+            type="password"
+            name="password"
+            placeholder="type password"
+            value={this.state.credentials.password}
+            onChange={this.handleChange}
           />
 
-
-          <button 
-          type="submit">
-            Login
-            </button>
-
-
+          <button type="submit">Login</button>
         </form>
       </>
     );
